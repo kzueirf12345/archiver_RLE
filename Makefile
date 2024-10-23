@@ -6,7 +6,7 @@ BUILD_DIR = ./build
 SRC_DIR = ./src
 COMPILER = gcc
 
-DEBUG_ = 1
+# DEBUG_ = 1
 
 FLAGS = -ggdb3 -O0 -Wall -Wextra -Waggressive-loop-optimizations \
 		-Wmissing-declarations -Wcast-align -Wcast-qual -Wchar-subscripts \

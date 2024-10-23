@@ -23,7 +23,7 @@ enum ErrorCode open_streams(FILE** const stream_in, FILE** const stream_out)
         return ERROR_FAILURE;
 
 
-    printf("Enter the output file name or: ");
+    printf("Enter the output file name: ");
 
     char filename_out[MAX_FILENAME_LEN] = {};
     if (scanf("%s", filename_out) != 1)

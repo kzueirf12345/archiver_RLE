@@ -51,7 +51,7 @@ enum LogCode internal_func_log(const char* const func_name, const int line_num,
 
 #else /*NDEBUG*/
 
-#define lassert(check, format, ...) do {} while(0)
+#define lassert(check, ...) do {} while(0)
 
 #endif /*NDEBUG*/
 
