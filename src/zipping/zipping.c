@@ -6,8 +6,8 @@
 
 enum ErrorCode zipping2_achtung(FILE* stream_in, FILE* stream_out)
 {
-    assert(stream_in);
-    assert(stream_out);
+    lassert(stream_in);
+    lassert(stream_out);
 
 
     char prev_symbol = (char)fgetc(stream_in);
@@ -34,8 +34,8 @@ enum ErrorCode zipping2_achtung(FILE* stream_in, FILE* stream_out)
 
 enum ErrorCode zipping(FILE* stream_in, FILE* stream_out)
 {
-    assert(stream_in);
-    assert(stream_out);
+    lassert(stream_in);
+    lassert(stream_out);
 
 
     char prev_symbol = 0;

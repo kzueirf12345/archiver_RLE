@@ -6,7 +6,7 @@ BUILD_DIR = ./build
 SRC_DIR = ./src
 COMPILER = gcc
 
-DEBUG_ = 1
+# DEBUG_ = 1
 
 FLAGS = -ggdb3 -O0 -Wall -Wextra -Waggressive-loop-optimizations \
 		-Wmissing-declarations -Wcast-align -Wcast-qual -Wchar-subscripts \
@@ -30,11 +30,12 @@ RELEASE_FLAGS = -DNDEBUG
 FLAGS += $(if $(DEBUG_),$(DEBUG_FLAGS),$(RELEASE_FLAGS))
 
 
-DIRS = streams utils zipping unzipping mode
+DIRS = streams utils zipping unzipping mode logger
 BUILD_DIRS = $(DIRS:%=$(BUILD_DIR)/%)
 
 
-SOURCES = main.c streams/streams.c zipping/zipping.c unzipping/unzipping.c mode/mode.c
+SOURCES = main.c streams/streams.c zipping/zipping.c unzipping/unzipping.c mode/mode.c \
+		  logger/logger.c
 
 SOURCES_REL_PATH = $(SOURCES:%=$(SRC_DIR)/%)
 OBJECTS_REL_PATH = $(SOURCES:%.c=$(BUILD_DIR)/%.o)
@@ -67,7 +68,7 @@ clean_all: clean_log clean_obj clean_deps clean_out
 clean: clean_obj clean_deps clean_out
 
 clean_log:
-	rm -rf ./log/*.log
+	rm -rf ./*.log
 
 clean_out:
 	rm -rf ./*.out

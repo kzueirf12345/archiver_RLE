@@ -6,12 +6,17 @@
 
 int main()
 {
+    init_logger();
+    set_level_details(LOG_LEVEL_DETAILS_ALL);
+
     FILE* stream_in = NULL, *stream_out = NULL;
     if (open_streams(&stream_in, &stream_out) == ERROR_FAILURE)
     {
         fprintf(stderr, "OPEN FAILURE\n");
         return -1;
     }
+    logg(LOG_LEVEL_DETAILS_INFO, "Open (in-)output files: stream_in(%p), stream_out(%p)", 
+         stream_in, stream_out);
 
 
     enum Mode mode = change_mode();
@@ -48,6 +53,8 @@ int main()
         fprintf(stderr, "CLOSE FAILURE\n");
         return -1;
     }
+
+    destroy_logger();
 
     return 0;
 }

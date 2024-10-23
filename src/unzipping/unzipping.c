@@ -6,10 +6,6 @@
 
 #include "unzipping.h"
 
-// TODO vprintf
-//log(INFO, "unzipping_achtung(%p, %p)", stream_in, stream_out); 
-// TODO line number, filename, time, log level
-
 enum UnzippingState
 {
     UNZIPPING_STATE_START,
@@ -22,10 +18,10 @@ enum UnzippingState
 #define MAX_SYMBOL_COUNT_LEN_ 10
 
 
-enum ErrorCode unzipping2_achtung(FILE* stream_in, FILE* stream_out) // FIXME
+enum ErrorCode unzipping2_achtung(FILE* stream_in, FILE* stream_out)
 {
-    assert(stream_in);
-    assert(stream_out);
+    lassert(stream_in);
+    lassert(stream_out);
 
     size_t count_symbol_size = 0;
     char count_symbol_buf[MAX_SYMBOL_COUNT_LEN_] = {};
@@ -98,7 +94,7 @@ enum ErrorCode unzipping2_achtung(FILE* stream_in, FILE* stream_out) // FIXME
         }
         
         default:
-            assert(!"Unknown error");
+            lassert(!"Unknown error");
             break;
         }
 
@@ -112,10 +108,11 @@ enum ErrorCode unzipping2_achtung(FILE* stream_in, FILE* stream_out) // FIXME
 }
 #undef MAX_SYMBOL_COUNT_LEN_
 
+
 enum ErrorCode unzipping(FILE* stream_in, FILE* stream_out) 
 {
-    assert(stream_in);
-    assert(stream_out);
+    lassert(stream_in);
+    lassert(stream_out);
 
     unsigned char count = (unsigned char)fgetc(stream_in);
     char symbol = 0;

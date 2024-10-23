@@ -1,6 +1,8 @@
 #ifndef SRC_UTILS_H
 #define SRC_UTILS_H
 
+#include "../logger/logger.h"
+
 #define REPEAT   0b10000000
 #define NOREPEAT 0b00000000
 
